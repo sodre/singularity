@@ -84,6 +84,10 @@ char *singularity_image_path(struct image_object *image) {
 }
 
 int singularity_image_open(struct image_object *image, int open_flags) {
+    /* If a daemon already exists, skip this function */
+    if( singularity_registry_get("DAEMON") == 1 )
+        return(0);
+
     return(_singularity_image_open(image, open_flags));
 }
 
@@ -96,6 +100,10 @@ int singularity_image_expand(struct image_object *image, unsigned int size) {
 }
 
 int singularity_image_check(struct image_object *image) {
+    /* If a daemon already exists, skip this function */
+    if( singularity_registry_get("DAEMON") == 1 )
+        return(0);
+
     return(_singularity_image_check(image));
 }
 
@@ -104,10 +112,18 @@ int singularity_image_offset(struct image_object *image) {
 }
 
 int singularity_image_bind(struct image_object *image) {
+    /* If a daemon already exists, skip this function */
+    if( singularity_registry_get("DAEMON") == 1 )
+        return(0);
+    
     return(_singularity_image_bind(image));
 }
 
 int singularity_image_mount(struct image_object *image, char *mount_point) {
+    /* If a daemon already exists, skip this function */
+    if( singularity_registry_get("DAEMON") == 1 )
+        return(0);
+
     return(_singularity_image_mount(image, mount_point));
 }
 
