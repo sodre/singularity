@@ -600,7 +600,6 @@ if [ "$found_modules" = "" ]; then
 	fi
 fi
 echo " found build modules:"
-echo "CPPFLAGS :=" >> $makeit_makefile_base
 # NOTE: parsed module (*.mconf) files only substitute var tgt_arch for now
 for m in $found_modules; do
 	mod=`eval echo ${m##*./}`
@@ -624,9 +623,7 @@ echo >> $makeit_makefile_base
 
 # init LDFLAGS if static builds are supported
 if [ "$hststatic" = "1" -a "$tgtstatic" = "1" ]; then
-	echo "LDFLAGS := -static" >> $makeit_makefile_base
-else
-	echo "LDFLAGS :=" >> $makeit_makefile_base
+	echo "LDFLAGS += -static" >> $makeit_makefile_base
 fi
 echo >> $makeit_makefile_base
 

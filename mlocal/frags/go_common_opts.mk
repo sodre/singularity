@@ -3,9 +3,9 @@ GO_TAGS := -tags "containers_image_openpgp apparmor selinux"
 GO_LDFLAGS :=
 GO_BUILDMODE := -buildmode=default
 
-CGO_CPPFLAGS := -I$(BUILDDIR) -I$(SOURCEDIR)/src/runtime -I$(SOURCEDIR)/src/runtime/c/lib
+CGO_CPPFLAGS += -I$(BUILDDIR) -I$(SOURCEDIR)/src/runtime -I$(SOURCEDIR)/src/runtime/c/lib
 CGO_CPPFLAGS += -include $(BUILDDIR_ABSPATH)/config.h
 
-CGO_LDFLAGS := -L$(BUILDDIR_ABSPATH)/lib -L$(BUILDDIR) -lruntime
+CGO_LDFLAGS += -L$(BUILDDIR_ABSPATH)/lib -L$(BUILDDIR) -lruntime
 
 export CGO_CPPFLAGS CGO_LDFLAGS

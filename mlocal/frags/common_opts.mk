@@ -2,9 +2,9 @@
 CLEANFILES :=
 
 # general build-wide compile options
-AFLAGS := -g
+AFLAGS += -g
 
-CFLAGS := -Wall -Werror -Wfatal-errors  -Wno-unknown-warning-option
+CFLAGS += -Wall -Werror -Wfatal-errors  -Wno-unknown-warning-option
 CFLAGS += -Wstrict-prototypes -Wpointer-arith -Wbad-function-cast
 CFLAGS += -Woverlength-strings -Wframe-larger-than=2047
 CFLAGS += -Wno-sign-compare -Wclobbered -Wempty-body -Wmissing-parameter-type
