@@ -89,7 +89,7 @@ cni_config_LIST := $(SOURCEDIR)/etc/network/00_bridge.conflist \
                    $(SOURCEDIR)/etc/network/10_ptp.conflist \
                    $(SOURCEDIR)/etc/network/20_ipvlan.conflist \
                    $(SOURCEDIR)/etc/network/30_macvlan.conflist
-cni_config_INSTALL := $(DESTDIR)$(SYSCONFDIR)/singularity/network
+cni_config_INSTALL := $(DESTDIR)$(SYSCONFDIR)/cni/net.d
 
 actions_LIST := $(SOURCEDIR)/etc/actions/exec $(SOURCEDIR)/etc/actions/run $(SOURCEDIR)/etc/actions/shell \
 	$(SOURCEDIR)/etc/actions/start $(SOURCEDIR)/etc/actions/test
