@@ -30,13 +30,19 @@ type Define struct {
 
 // WriteLine writes a line of configuration.
 func (d Define) WriteLine() (s string) {
-	s = "const " + d.Words[1] + " = " + d.Words[2]
+	s = "const " + d.Words[1] + " = "
 
-	if len(d.Words) > 3 {
-	}
+        if (d.Words[1] == "PREFIX") {
+		s += "os.Getenv(\"CONDA_PREFIX\")"
+        } else {
+		s += d.Words[2]
 
-	for _, w := range d.Words[3:] {
-		s += " + " + w
+		if len(d.Words) > 3 {
+		}
+
+		for _, w := range d.Words[3:] {
+			s += " + " + w
+		}
 	}
 	return s
 }
