@@ -145,8 +145,16 @@ func SMaster(rpcSocket, masterSocket int, starterConfig *starter.Config, jsonByt
 }
 
 func startup() {
+	conda_prefix := os.Getenv("CONDA_PREFIX")
 	loglevel := os.Getenv("SINGULARITY_MESSAGELEVEL")
 	os.Clearenv()
+	if conda_prefix == "" {
+		sylog.Errorf("CONDA_PREFIX is not set")
+	}
+	if os.Setenv("CONDA_PREFIX", conda_prefix) != nil {
+		sylog.Errorf("can't restore CONDA_PREFIX environment variable")
+		os.Exit(1)
+	}
 	if loglevel != "" {
 		if os.Setenv("SINGULARITY_MESSAGELEVEL", loglevel) != nil {
 			sylog.Warningf("can't restore SINGULARITY_MESSAGELEVEL environment variable")

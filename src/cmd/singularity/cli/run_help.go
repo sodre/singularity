@@ -46,7 +46,11 @@ var RunHelpCmd = &cobra.Command{
 		a := []string{"/bin/cat", "/.singularity.d/runscript.help"}
 		starter := buildcfg.LIBEXECDIR + "/singularity/bin/starter-suid"
 		procname := "Singularity help"
-		Env := []string{sylog.GetEnvVar(), "SRUNTIME=singularity"}
+		Env := []string{
+			sylog.GetEnvVar(), 
+			"SRUNTIME=singularity",
+			"CONDA_PREFIX="+os.Getenv("CONDA_PREFIX"),
+		}
 
 		engineConfig := singularity.NewConfig()
 		ociConfig := &oci.Config{}

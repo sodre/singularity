@@ -539,7 +539,11 @@ func execStarter(cobraCmd *cobra.Command, image string, args []string, name stri
 		sylog.Warningf("can't determine current working directory: %s", err)
 	}
 
-	Env := []string{sylog.GetEnvVar(), "SRUNTIME=singularity"}
+	Env := []string{
+		sylog.GetEnvVar(), 
+		"SRUNTIME=singularity",
+		"CONDA_PREFIX="+os.Getenv("CONDA_PREFIX"),
+	}
 
 	generator.AddProcessEnv("SINGULARITY_APPNAME", AppName)
 

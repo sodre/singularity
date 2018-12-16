@@ -17,23 +17,23 @@ config_add_def EXECPREFIX PREFIX
 config_add_def BINDIR EXECPREFIX \"/bin\"
 config_add_def SBINDIR EXECPREFIX \"/sbin\"
 config_add_def LIBEXECDIR EXECPREFIX \"/libexec\"
-config_add_def DATAROOTDIR PREFIX \"share\"
+config_add_def DATAROOTDIR PREFIX \"/share\"
 config_add_def DATADIR DATAROOTDIR
 config_add_def SYSCONFDIR PREFIX \"/etc\"
 config_add_def SHAREDSTATEDIR PREFIX \"/com\"
 config_add_def LOCALSTATEDIR PREFIX \"/var\"
-config_add_def RUNSTATEDIR LOCALSTATEDIR \"run\"
-config_add_def INCLUDEDIR PREFIX \"include\"
+config_add_def RUNSTATEDIR LOCALSTATEDIR \"/run\"
+config_add_def INCLUDEDIR PREFIX \"/include\"
 config_add_def OLDINCLUDEDIR \"$oldincludedir\"
-config_add_def DOCDIR  DATADIR \"doc/singularity\"
-config_add_def INFODIR DATADIR \"info\"
+config_add_def DOCDIR  DATADIR \"/doc/singularity\"
+config_add_def INFODIR DATADIR \"/info\"
 config_add_def HTMLDIR DOCDIR
 config_add_def DVIDIR DOCDIR
 config_add_def PDFDIR DOCDIR
 config_add_def PSDIR DOCDIR
 config_add_def LIBDIR PREFIX \"/lib\"
-config_add_def LOCALEDIR DATAROOTDIR \"locale\"
-config_add_def MANDIR DATAROOTDIR \"man\"
+config_add_def LOCALEDIR DATAROOTDIR \"/locale\"
+config_add_def MANDIR DATAROOTDIR \"/man\"
 config_add_def SINGULARITY_CONFDIR SYSCONFDIR \"/singularity\"
 config_add_def CAPABILITY_FILE SINGULARITY_CONFDIR \"/capability.json\"
 config_add_def ECL_FILE SINGULARITY_CONFDIR \"/ecl.toml\"
