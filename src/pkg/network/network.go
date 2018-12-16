@@ -10,6 +10,7 @@ import (
 
 	"github.com/containernetworking/cni/libcni"
 	"github.com/containernetworking/cni/pkg/types"
+	"github.com/sylabs/singularity/src/pkg/buildcfg"
 	"github.com/sylabs/singularity/src/pkg/util/env"
 )
 
@@ -46,10 +47,10 @@ type portMap struct {
 }
 
 // DefaultCNIConfPath is the default directory to CNI network configuration files
-var DefaultCNIConfPath = filepath.Join(os.Getenv("CONDA_PREFIX"), "cni", "net.d")
+var DefaultCNIConfPath = filepath.Join(buildcfg.SYSCONFDIR, "cni", "net.d")
 
 // DefaultCNIPluginPath is the default directory to CNI plugins executables
-var DefaultCNIPluginPath = os.Getenv("CNI_PATH")
+var DefaultCNIPluginPath = filepath.Join(buildcfg.PREFIX, "lib", "cni")
 
 // AvailableNetworks lists configured networks in configuration path directory
 // provided by cniPath
